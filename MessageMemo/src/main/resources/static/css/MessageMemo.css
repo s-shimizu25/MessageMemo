@@ -1,0 +1,30 @@
+@charset "UTF-8";
+
+.title {
+	background-color:#afeeee;
+	color:white;
+}
+
+.main {
+    background-color : #e0ffff;
+    margin: 1em;
+}
+
+
+a {
+	font-size : 3em;
+    color : white;
+}
+.ampm {
+    list-style: none;
+    padding-top: 1em;
+}
+
+.time {
+    padding-top: 2em;
+}
+
+
+.check {
+    list-style: none;
+}
