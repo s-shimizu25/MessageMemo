@@ -9,6 +9,7 @@ import java.util.Date;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 //import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 //import org.springframework.ui.Model;
@@ -37,16 +38,17 @@ public class MessageMemoController {
 	
 
 
-	
+	//伝言メモ
 	@RequestMapping("/msgmemo/inputForm")
     public String index(Model model){
 	
-		// M_CUSTOMERテーブルの全データを取得
+		// M_EMPLOYEEテーブルの全データを取得
 		Iterable<MessageEmployee> employeeList = messageEmployeeRepository.findAll();
 		
 		// モデルに属性追加
 		model.addAttribute("employeeList",employeeList);
 		
+		// M_CUSTOMERテーブルの全データを取得
 		Iterable<MessageCustomer> customerList = messageCustomerRepository.findAll();
 		
 		// モデルに属性追加
@@ -57,7 +59,7 @@ public class MessageMemoController {
 		return "index.html";
 	}
 	
-	
+
 	
 	
 	

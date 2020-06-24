@@ -12,7 +12,7 @@ public interface MessageMemoRepository extends CrudRepository<MessageMemo, Strin
 	
 	@Query(value = "SELECT count(M_ID) from T_MESSAGE", nativeQuery = true)
 	public int findT_message();
-	
+
 }
 
     

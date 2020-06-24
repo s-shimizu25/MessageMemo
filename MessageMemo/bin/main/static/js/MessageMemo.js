@@ -16,7 +16,8 @@ function setDate(){
 function cantWrite(){
   let obj = document.getElementById("text");
   if(obj.readOnly == false){      //readonlyが解除されている時
-    obj.readOnly = true;          //readonlyに
+    obj.readOnly = true; 		//readonlyに
+    obj.value="";
   }
 }
 
@@ -27,6 +28,7 @@ function canWrite(){
     	obj.readOnly = false;        //readonlyを解除
     }else{
     	obj.readOnly = true;
+    	obj.value="";
     }
 }
 
@@ -57,31 +59,25 @@ function setTime(){
 }
 
 
-//入力チェック
+//入力チェック（チェックボックス、テキストボックス）
 function checkForm(){
   let flag = 0;
   if( document.checks.c1.checked==false && document.checks.c2.checked==false && document.checks.c3.checked==false){
-    flag = 1;  
-    document.getElementById('noInput').style.display="block";
-    }else{
-      document.getElementById('noInput').style.display="none";
-    }
-
-  if(document.checks.memo.value=="" && document.checks.c3.checked==true){
     flag = 1;
-    document.getElementById('noText').style.display="block";
-  }else{
-    document.getElementById('noText').style.display="none";    
+    document.getElementById('memo').textContent="チェックを入れてください";
+    } else if(document.checks.memo.value=="" && document.checks.c3.checked==true){
+    flag = 1;
+    document.getElementById('memo').textContent="テキストを入力してください";
   }
-
   if(flag){
     return false;
   }else{
     return true;
   }
+  
 }
 
-
+//チェックボックスの複数選択不可処理
 function checkbox(){
 	document.forms['form'].elements['c1'].onclick=ckbox1;
 	document.forms['form'].elements['c2'].onclick=ckbox2;
@@ -99,12 +95,5 @@ function checkbox(){
 	document.forms['form'].elements['c1'].checked=false;
 	document.forms['form'].elements['c2'].checked=false;
 	}
-	//window.addEventListener('DOMContentLoaded',checkbox,false);
 	
 	
-//～さんあてを消す処理
-function memo(){
-	let del = "";
-	document.getElementById('memo').value=del;
-	}
- 
